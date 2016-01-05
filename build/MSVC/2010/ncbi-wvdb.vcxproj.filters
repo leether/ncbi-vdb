@@ -693,6 +693,9 @@
     <ClCompile Include="..\..\..\libs\sraxf\tokenize-spot_name-abi.c">
       <Filter>wsraxf</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\libs\sraxf\tokenize-spot_name-generic-fastq.c">
+      <Filter>wsraxf</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\libs\sraxf\tokenize-spot_name-helicos.c">
       <Filter>wsraxf</Filter>
     </ClCompile>
