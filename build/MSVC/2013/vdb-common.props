@@ -14,7 +14,7 @@
     
         <VDB_OUTDIR Condition="'$(VDB_OUTDIR)' == ''">$(NGS_OUTDIR)\</VDB_OUTDIR>
         <VDB_ROOT Condition="'$(VDB_ROOT)' == ''">$(ProjectDir)..\..\..\</VDB_ROOT>
-        <VDB_TARGET Condition="'$(VDB_TARGET)' == ''">$(VDB_OUTDIR)win\cl\$(Platform)\$(Configuration)\</VDB_TARGET>
+        <VDB_TARGET Condition="'$(VDB_TARGET)' == ''">$(VDB_OUTDIR)win\cl\vs2013\$(Platform)\$(Configuration)\</VDB_TARGET>
 
         <VDB_TARGET_NAME Condition="'$(VDB_TARGET_NAME)' == ''">$(ProjectName)</VDB_TARGET_NAME>
 
