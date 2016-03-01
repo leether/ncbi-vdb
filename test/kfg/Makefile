@@ -32,8 +32,8 @@ MODULE = test/kfg
 TEST_TOOLS = \
 	wb-test-kfg \
 	test-kfg \
-    test-repository \
-    test-keystore
+	test-repository \
+	test-keystore
 
 include $(TOP)/build/Makefile.env
 
@@ -43,6 +43,18 @@ $(TEST_TOOLS): makedirs
 .PHONY: $(TEST_TOOLS)
 
 clean: stdclean
+
+#-------------------------------------------------------------------------------
+# ncbi-home-from-env
+
+ENV_SRC = \
+	ncbi-home-from-env
+
+ENV_OBJ = \
+	$(addsuffix .$(OBJX),$(ENV_SRC))
+
+$(TEST_BINDIR)/ncbi-home-from-env: $(ENV_OBJ)
+	$(LP) --exe -o $@ $^ $(ENV_LIB) 
 
 #-------------------------------------------------------------------------------
 # white-box test
@@ -61,9 +73,6 @@ TEST_LIB = \
 $(TEST_BINDIR)/wb-test-kfg: $(TEST_OBJ)
 	$(LP) --exe -o $@ $^ $(TEST_LIB) 
 
-valgrind_wb: std
-	valgrind --ncbi $(TEST_BINDIR)/wb-test-kfg 
-    
 #-------------------------------------------------------------------------------
 # test-kfg
 #
@@ -80,9 +89,6 @@ TEST_KFG_LIB = \
 
 $(TEST_BINDIR)/test-kfg: $(TEST_KFG_OBJ)
 	$(LP) --exe -o $@ $^ $(TEST_KFG_LIB)
-
-valgrind_kfg: std
-	valgrind --ncbi $(TEST_BINDIR)/test-kfg 
 
 #-------------------------------------------------------------------------------
 # test-repository
@@ -101,9 +107,6 @@ TEST_REPOSITORY_LIB = \
 $(TEST_BINDIR)/test-repository: $(TEST_REPOSITORY_OBJ)
 	$(LP) --exe -o $@ $^ $(TEST_REPOSITORY_LIB)
 
-valgrind_repository: std
-	valgrind --ncbi $(TEST_BINDIR)/test-repository 
-
 #-------------------------------------------------------------------------------
 # test-keystore
 #
@@ -121,5 +124,3 @@ TEST_KEYSTORE_LIB = \
 $(TEST_BINDIR)/test-keystore: $(TEST_KEYSTORE_OBJ)
 	$(LP) --exe -o $@ $^ $(TEST_KEYSTORE_LIB)
 
-valgrind_keystore: std
-	valgrind --ncbi $(TEST_BINDIR)/test-keystore 
