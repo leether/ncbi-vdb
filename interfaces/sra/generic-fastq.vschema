@@ -226,7 +226,6 @@ database NCBI:SRA:GenericFastqNanoporeConsensusOnly:db #1
 /*--------------------------------------------------------------------------
  * NCBI:SRA:GenericFastq:absolid
  *  Generic fastq for AB Solid platform
-	, NCBI:tbl:color_space #1.0.3
  */
 table NCBI:SRA:GenericFastq:absolid #1
     = NCBI:SRA:tbl:sra #2.1.3
